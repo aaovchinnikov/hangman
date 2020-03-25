@@ -6,19 +6,22 @@ import java.io.ByteArrayOutputStream;
 
 import org.junit.Test;
 
-public class ResultTest {
+import hangman.mocks.LostGame;
+import hangman.mocks.WonGame;
+
+public class PrintedResultTest {
 
 	@Test
 	public void winTest() {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		new Result(baos, true).print();		
+		new PrintedResult(baos, new WonGame()).print();		
 		assertTrue(new String(baos.toByteArray()).equals("You won!\n"));
 	}
 	
 	@Test
 	public void looseTest() {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		new Result(baos, false).print();		
+		new PrintedResult(baos, new LostGame()).print();		
 		assertTrue(new String(baos.toByteArray()).equals("You lost.\n"));
 	}
 }

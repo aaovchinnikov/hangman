@@ -8,20 +8,20 @@ import java.io.PrintStream;
  * 
  * @author Alexander Ovchinnikov
  */
-public final class Result {
+public final class PrintedResult {
 	/** Encapsulated {@link OutputStream} where result should be printed */
 	private final OutputStream output;
-	/** Temporary var for tests */
-	private final boolean success;
+	/** Encapsulated {@link Hangman} which result is printed */
+	private final Game game;
 
 	/**
 	 * Main constructor
 	 * 
 	 * @param out - {@link OutputStream} where result should be printed
 	 */
-	public Result(final OutputStream out, final boolean success) {
+	public PrintedResult(final OutputStream out, final Game game) {
 		this.output = out;
-		this.success = success;
+		this.game = game;
 	}
 
 	/**
@@ -29,7 +29,7 @@ public final class Result {
 	 */
 	public void print() {
 		final PrintStream out = new PrintStream(this.output);
-		if (this.success) {
+		if (this.game.won()) {
 			out.print("You won!\n");
 		} else {
 			out.print("You lost.\n");
