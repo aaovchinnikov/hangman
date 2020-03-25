@@ -17,6 +17,6 @@ public class GuessTest {
 			new ByteArrayInputStream(str.getBytes()),
 			System.out
 		);
-		assertThat(guess.guess(), CoreMatchers.equalTo(five));
+		assertThat(guess.next(), CoreMatchers.equalTo(five));
 	}
 }

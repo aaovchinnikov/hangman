@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Guess {
 	private final InputStream input;
 	private final OutputStream output;
-	
+
 	/**
 	 * @param input
 	 * @param output
@@ -19,12 +19,9 @@ public class Guess {
 	}
 
 	public char next() {
-		try (
-			final PrintStream out = new PrintStream(this.output);
-			final Scanner scanner = new Scanner(this.input)
-		) {
-			out.print("Guess a letter: ");
-            return scanner.next().charAt(0);
-		}
+		final PrintStream out = new PrintStream(this.output);
+		final Scanner scanner = new Scanner(this.input);
+		out.print("Guess a letter: ");
+		return scanner.next().charAt(0);
 	}
 }
