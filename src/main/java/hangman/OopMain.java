@@ -6,7 +6,7 @@ public class OopMain {
 
 	public static void main(String[] args) {
 		OutputStream out = System.out;
-		new PrintedResult(
+		new Result(
 			out, 
 			new Hangman(
 				new Secret("secret"),
