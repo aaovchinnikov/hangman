@@ -39,11 +39,11 @@ public final class Hangman implements Game {
                 if (this.secret.contains(chr)) {
                 	out.print("Hit!\n");
                 } else {
+                	mistakes++;
                     out.printf(
                     		"Missed, mistake #%d out of %d\n",
-                    		mistakes + 1, this.max
+                    		mistakes, this.max
                     );
-                    ++mistakes;
                 }
 			}
 			return false;
