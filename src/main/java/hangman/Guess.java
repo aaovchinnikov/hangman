@@ -18,7 +18,7 @@ public class Guess {
 		this.output = output;
 	}
 
-	public char guess() {
+	public char next() {
 		try (
 			final PrintStream out = new PrintStream(this.output);
 			final Scanner scanner = new Scanner(this.input)
