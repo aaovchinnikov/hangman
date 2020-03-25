@@ -28,25 +28,21 @@ public final class Hangman implements Game {
 	}
 
 	public boolean won() {
-		try (
-			final PrintStream out = new PrintStream(this.output);
-			final Scanner scanner = new Scanner(this.input)
-		) {
-			int mistakes = 0;
+		int mistakes = 0;
+		Guess guess = new Guess(this.input, this.output);
+		try (final PrintStream out = new PrintStream(this.output)){
 			while (mistakes < this.max) {
-				out.print("Guess a letter: ");
-                char chr = scanner.next().charAt(0);
-                if (this.secret.contains(chr)) {
-                	out.print("Hit!\n");
-                } else {
-                	mistakes++;
-                    out.printf(
-                    		"Missed, mistake #%d out of %d\n",
-                    		mistakes, this.max
-                    );
-                }
-			}
+				if (this.secret.contains(guess.next())) {
+	                	out.print("Hit!\n");
+	                } else {
+	                	mistakes++;
+	                    out.printf(
+	                    		"Missed, mistake #%d out of %d\n",
+	                    		mistakes, this.max
+	                    );
+	                }
+				}
 			return false;
-		}
+		}	
 	}
 }
