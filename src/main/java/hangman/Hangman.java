@@ -28,9 +28,13 @@ public final class Hangman implements Game {
 	public boolean won() {
 		int mistakes = 0;
 		final PrintStream out = new PrintStream(this.output);
+		char chr;
+		Secret sec = this.secret;
 		while (mistakes < this.max) {
-			if (this.secret.contains(guess.next())) {
+			chr = guess.next();
+			if (this.secret.contains(chr)) {
 				out.print("Hit!\n");
+				sec = sec.unmask(chr);
             } else {
               	mistakes++;
               	out.printf(
@@ -38,7 +42,7 @@ public final class Hangman implements Game {
                     mistakes, this.max
               	);
             }
-			this.secret.print();
+			sec.print();
 		}
 		return false;
 	}

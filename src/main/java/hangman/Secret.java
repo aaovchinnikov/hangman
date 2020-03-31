@@ -1,5 +1,6 @@
 package hangman;
 
+import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Random;
 
@@ -79,10 +80,13 @@ public final class Secret {
 	 */
 	public Secret unmask(final char chr) {
 		boolean[] m = new boolean[this.secret.length()];
+		for (int i = 0; i < this.secret.length(); ++i) {
+			m[i] = this.visible[i];
+		}
 		boolean hit = false;
         for (int i = 0; i < this.secret.length(); ++i) {
-        	if ((this.secret.charAt(i) == chr) && !visible[i]) {
-                visible[i] = true;
+        	if ((this.secret.charAt(i) == chr) && !m[i]) {
+                m[i] = true;
                 hit = true;
             }
         }
