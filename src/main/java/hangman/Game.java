@@ -1,7 +1,7 @@
 package hangman;
 
 /**
- * Represents any game that can be won or lost. No tie or standoff situations allowed.
+ * Represents any game that can be won or lost. The Game doesn't support any tie or standoff situations.
  * @author Alexander Ovchinnikov
  *
  */
