@@ -43,6 +43,9 @@ public final class Hangman implements Game {
               	);
             }
 			sec.print();
+			if (this.secret.unmasked()) {
+				return true;
+			}
 		}
 		return false;
 	}
