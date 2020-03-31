@@ -1,22 +1,20 @@
 package hangman;
 
-import java.io.OutputStream;
 import java.util.Scanner;
 
 public class OopMain {
 
 	public static void main(String[] args) {
-		final OutputStream out = System.out;
 		new Result(
-			out, 
+			System.out, 
 			new Hangman(
-				new Secret("secret"),
+				new Secret("secret", System.out),
 				5,
 				new Guess(
 					new Scanner(System.in),
-					out
+					System.out
 				),
-				out
+				System.out
 			)
 		).print();
 	}

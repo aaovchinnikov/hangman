@@ -30,15 +30,16 @@ public final class Hangman implements Game {
 		final PrintStream out = new PrintStream(this.output);
 		while (mistakes < this.max) {
 			if (this.secret.contains(guess.next())) {
-                	out.print("Hit!\n");
-                } else {
-                	mistakes++;
-                    out.printf(
-                    		"Missed, mistake #%d out of %d\n",
-                    		mistakes, this.max
-                    );
-                }
-			}
+				out.print("Hit!\n");
+            } else {
+              	mistakes++;
+              	out.printf(
+              		"Missed, mistake #%d out of %d\n",
+                    mistakes, this.max
+              	);
+            }
+			this.secret.print();
+		}
 		return false;
 	}
 }
