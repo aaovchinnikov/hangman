@@ -1,4 +1,4 @@
-package hangman;
+package hangman.impl;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -8,6 +8,7 @@ import java.util.Scanner;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
+import hangman.Guess;
 import hangman.impl.SimpleGuess;
 
 public final class SimpleGuessTest {

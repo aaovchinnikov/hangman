@@ -1,4 +1,4 @@
-package hangman;
+package hangman.impl;
 
 import org.junit.Test;
 

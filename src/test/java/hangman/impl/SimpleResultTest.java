@@ -1,4 +1,4 @@
-package hangman;
+package hangman.impl;
 
 import static org.junit.Assert.assertTrue;
 

@@ -1,4 +1,4 @@
-package hangman;
+package hangman.impl;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -8,6 +8,7 @@ import java.io.PrintStream;
 
 import org.junit.Test;
 
+import hangman.Secret;
 import hangman.impl.SimpleSecret;
 
 public final class SimpleSecretTest {

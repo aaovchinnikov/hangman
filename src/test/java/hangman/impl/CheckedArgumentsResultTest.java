@@ -1,7 +1,8 @@
-package hangman;
+package hangman.impl;
 
 import org.junit.Test;
 
+import hangman.Game;
 import hangman.impl.CheckedArgumentsResult;
 
 public class CheckedArgumentsResultTest {
