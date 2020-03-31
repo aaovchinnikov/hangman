@@ -1,6 +1,7 @@
 package hangman;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
@@ -29,8 +30,11 @@ public final class Hangman implements Game {
 
 	public boolean won() {
 		int mistakes = 0;
-		Guess guess = new Guess(this.input, this.output);
-		try (final PrintStream out = new PrintStream(this.output)){
+		try (
+			final PrintStream out = new PrintStream(this.output);
+			final Scanner scanner = new Scanner(this.input)
+		){
+			Guess guess = new Guess(scanner, this.output);
 			while (mistakes < this.max) {
 				if (this.secret.contains(guess.next())) {
 	                	out.print("Hit!\n");
