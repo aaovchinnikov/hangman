@@ -70,13 +70,13 @@ public class SecretTest {
 	@Test
 	public void secretHasMasked() {
 		Secret secret = new Secret("Test", System.out);
-		assertTrue(secret.masked());
+		assertFalse(secret.unmasked());
 	}
 	
 	@Test
 	public void secretAllUnmasked() {
 		Secret secret = new Secret("Test", new boolean[]{true, true, true, true} ,System.out);
-		assertFalse(secret.masked());
+		assertTrue(secret.unmasked());
 	}
 	
 }

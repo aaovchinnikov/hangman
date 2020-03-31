@@ -100,12 +100,12 @@ public final class Secret {
 	 * Checks whether secret has any masked letters 
 	 * @return true if secret has any masked letters, false otherwise
 	 */
-	public boolean masked() {
+	public boolean unmasked() {
 		for(int i = 0; i < this.visible.length; i++) {
 			if (!this.visible[i]) {
-				return true;
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 }
