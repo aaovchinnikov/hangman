@@ -29,4 +29,26 @@ public class SecretTest {
 		String output = baos.toString();
 		assertTrue(output.equals("????\n\n"));
 	}
+	
+	@Test
+	public void unmaskIncluded() {
+		final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		final PrintStream out = new PrintStream(baos);
+		Secret secret = new Secret("Test", out);
+		secret.unmask('e');
+		secret.print();
+		String output = baos.toString();
+		assertTrue(output.equals("?e??\n\n"));
+	}
+	
+	@Test
+	public void unmaskNothing() {
+		final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		final PrintStream out = new PrintStream(baos);
+		Secret secret = new Secret("Test", out);
+		secret.unmask('F');
+		secret.print();
+		String output = baos.toString();
+		assertTrue(output.equals("????\n\n"));
+	} 
 }

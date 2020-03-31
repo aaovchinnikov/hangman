@@ -1,6 +1,5 @@
 package hangman;
 
-import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Random;
 
@@ -74,19 +73,23 @@ public final class Secret {
 	}
 	
 	/**
-	 * 
+	 * Unmasks all positions of provided character {@link chr} if it's contained in {@link Secret} instance (i.e. if {@link Secret#contains(chr)} returns true)
+	 * @param chr - unmasked character 
+	 * @return new instance of Secret with unmasked positions or <b>this</b>-pointer if no positions are unmasked 
 	 */
-/*	public Secret unmask(final char c) {
+	public Secret unmask(final char chr) {
 		boolean[] m = new boolean[this.secret.length()];
-        for (int i = 0; i < word.length(); ++i) {
-            if (word.charAt(i) == chr && !visible[i]) {
+		boolean hit = false;
+        for (int i = 0; i < this.secret.length(); ++i) {
+        	if ((this.secret.charAt(i) == chr) && !visible[i]) {
                 visible[i] = true;
                 hit = true;
             }
         }
-
-		return new Secret(this.secret,)
+        if (hit) {
+        	return new Secret(this.secret, m, this.out);
+        } else {
+        	return this;
+        }
 	}
-*/
-
 }
