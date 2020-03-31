@@ -60,7 +60,7 @@ public final class Secret {
 	}
 	
 	/**
-	 * 
+	 * Print masked secret to encapsulated {@link PrintStream}
 	 */
 	public void print() {
 		for (int i = 0; i < this.secret.length(); ++i) {
