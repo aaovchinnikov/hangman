@@ -1,6 +1,10 @@
-package hangman;
+package hangman.impl;
 
 import java.io.PrintStream;
+
+import hangman.Game;
+import hangman.Guess;
+import hangman.Secret;
 
 /**
  * 

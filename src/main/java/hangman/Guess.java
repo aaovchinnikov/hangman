@@ -1,25 +1,15 @@
 package hangman;
 
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.util.Iterator;
-
-public class Guess {
-	private final Iterator<String> iterator;
-	private final OutputStream output;
-
+/**
+ * Represents object for getting guess attempts, specifically characters, from some source.
+ * 
+ * @author Alexander Ovchinnikov
+ *
+ */
+public interface Guess {
 	/**
-	 * @param input
-	 * @param output
+	 * Gets next guess attempt
+	 * @return next character
 	 */
-	public Guess(Iterator<String> iterator, OutputStream output) {
-		this.iterator = iterator;
-		this.output = output;
-	}
-
-	public char next() {
-		final PrintStream out = new PrintStream(this.output);
-		out.print("Guess a letter: ");
-		return iterator.next().charAt(0);
-	}
+	char next();
 }
