@@ -11,7 +11,7 @@ import java.io.PrintStream;
 public final class Result {
 	/** Encapsulated {@link OutputStream} where result should be printed */
 	private final OutputStream output;
-	/** Encapsulated {@link Hangman} which result is printed */
+	/** Encapsulated {@link Game} which result is printed */
 	private final Game game;
 
 	/**
