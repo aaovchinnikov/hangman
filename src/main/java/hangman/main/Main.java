@@ -2,18 +2,18 @@ package hangman.main;
 
 import java.util.Scanner;
 
+import hangman.impl.CheckedArgumentsResult;
+import hangman.impl.CheckedArgumentsSecret;
 import hangman.impl.Hangman;
 import hangman.impl.SimpleGuess;
-import hangman.impl.SimpleResult;
-import hangman.impl.SimpleSecret;
 
 public class Main {
 
 	public static void main(String[] args) {
-		new SimpleResult(
+		new CheckedArgumentsResult(
 			System.out, 
 			new Hangman(
-				new SimpleSecret("secret", System.out),
+				new CheckedArgumentsSecret("secret", System.out),
 				5,
 				new SimpleGuess(
 					new Scanner(System.in),
