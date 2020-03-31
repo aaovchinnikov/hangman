@@ -1,6 +1,5 @@
 package hangman;
 
-import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Random;
 
@@ -95,5 +94,18 @@ public final class Secret {
         } else {
         	return this;
         }
+	}
+	
+	/**
+	 * Checks whether secret has any masked letters 
+	 * @return true if secret has any masked letters, false otherwise
+	 */
+	public boolean masked() {
+		for(int i = 0; i < this.visible.length; i++) {
+			if (!this.visible[i]) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

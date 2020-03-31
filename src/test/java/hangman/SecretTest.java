@@ -30,7 +30,20 @@ public class SecretTest {
 		assertTrue(output.equals("????\n\n"));
 	}
 
-	//TODO add test for creation of Secret with mask
+	@Test 
+	public void createPartiallyMaskedSecret() {
+		final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		final PrintStream out = new PrintStream(baos);
+		final Secret secret = new Secret("secret", new boolean[]{false,true,false,true,false,true}, out);
+		secret.print();
+		String output = baos.toString();
+		assertTrue(output.equals("?e?r?t\n\n"));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void createSecretWithWrongMask() {
+		new Secret("secret", new boolean[]{false}, System.out);
+	}
 	
 	@Test
 	public void unmaskIncluded() {
@@ -52,5 +65,18 @@ public class SecretTest {
 		secret.print();
 		String output = baos.toString();
 		assertTrue(output.equals("????\n\n"));
-	} 
+	}
+	
+	@Test
+	public void secretHasMasked() {
+		Secret secret = new Secret("Test", System.out);
+		assertTrue(secret.masked());
+	}
+	
+	@Test
+	public void secretAllUnmasked() {
+		Secret secret = new Secret("Test", new boolean[]{true, true, true, true} ,System.out);
+		assertFalse(secret.masked());
+	}
+	
 }
