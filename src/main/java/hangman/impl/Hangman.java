@@ -34,7 +34,7 @@ public final class Hangman implements Game {
 		Secret sec = this.secret;
 		while (mistakes < this.max) {
 			chr = guess.next();
-			if (this.secret.contains(chr)) {
+			if (sec.contains(chr)) {
 				this.output.print("Hit!\n");
 				sec = sec.unmask(chr);
             } else {
