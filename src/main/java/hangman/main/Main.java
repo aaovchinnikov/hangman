@@ -13,7 +13,14 @@ public class Main {
 		new CheckedArgumentsResult(
 			System.out, 
 			new Hangman(
-				new CheckedArgumentsSecret("secret", System.out),
+				new CheckedArgumentsSecret(
+						new String[] {
+							"simplicity", "equality", "grandmother",
+							"neighborhood", "relationship", "mathematics",
+							"university", "explanation"
+						},
+						System.out
+				),
 				5,
 				new SimpleGuess(
 					new Scanner(System.in),

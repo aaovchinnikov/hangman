@@ -1,6 +1,7 @@
 package hangman.impl;
 
 import java.io.PrintStream;
+import java.util.Random;
 
 import hangman.Secret;
 
@@ -16,6 +17,22 @@ public final class CheckedArgumentsSecret implements Secret {
 	 */
 	private final Secret inner;
 
+	/**
+	 * Secondary constructor. Randomly chooses one string from provided variants array for the secret.
+	 * @param variants - array of strings to choose randomly one as a secret
+	 * @param out - {@link PrintStream} where Secret instance should be printed
+	 * @throws NullPointerException if variants array is <b>null</b>
+	 */
+	public CheckedArgumentsSecret(final String[] variants, final PrintStream out) {
+		if (variants == null) {
+			throw new NullPointerException("Provided variants array is null");
+		}
+		if (variants.length == 0) {
+			throw new IllegalArgumentException("Provided variants array is empty");
+		}
+		this.inner = new CheckedArgumentsSecret(variants[new Random().nextInt(variants.length)], out);
+	}
+	
 	/**
 	 * Secondary constructor. Builds secret with all characters masked. 
 	 * Delegates to {@link #CheckedArgumentsSecret(String, boolean[], PrintStream)}.
